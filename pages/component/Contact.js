@@ -25,7 +25,7 @@ function Contact() {
     enableReinitialize: true,
     initialValues: data,
     onSubmit: async (values, { resetForm }) => {
-      const res = await fetch('http://https://healthcenter.vercel.app/api/sendgrid', {
+      const res = await fetch('https://healthcenter.vercel.app/api/sendgrid', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({values})
