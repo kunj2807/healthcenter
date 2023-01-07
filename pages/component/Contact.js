@@ -9,23 +9,23 @@ import * as Yup from 'yup'
 
 function Contact() {
   const validation = Yup.object().shape({
-    email: Yup.string()
-      .email("Invalid Email")
+    Email: Yup.string()
+      .email("Invalid Email"),
   })
 
   const data = {
-    fname: '',
-    lname: '',
-    email: '',
-    number: '',
-    message: '',
+    First_Name: '',
+    Last_Name: '',
+    Email: '',
+    Number: '',
+    Message: '',
     subject: 'Contact'
   }
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: data,
     onSubmit: async (values, { resetForm }) => {
-      const res = await fetch('https://healthcenter.vercel.app/api/sendgrid', {
+      const res = await fetch('http://localhost:3000/api/sendgrid', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({values})
@@ -34,7 +34,7 @@ function Contact() {
     },
     validationSchema: validation
   })
-  const { fname, lname, email, number, message } = formik.values
+  const { First_Name, Last_Name, Email, Number, Message } = formik.values
   const { handleChange, handleSubmit } = formik
   return (
     <div className={style.body}>
@@ -53,14 +53,14 @@ function Contact() {
               <Grid container spacing={1}>
 
                 <Grid item xs={12} sm={12} md={6} lg={6}>
-                  <TextField label='First Name' name='fname' value={fname} color='error' onChange={handleChange} required fullWidth style={{ marginTop: 10 }}
+                  <TextField label='First Name' name='First_Name' value={First_Name} color='error' onChange={handleChange} required fullWidth style={{ marginTop: 10 }}
                   inputProps={{
                     "aria-label": "first name",
                 }}  />
                 </Grid>
 
                 <Grid item xs={12} sm={12} md={6} lg={6}>
-                  <TextField label='Last Name' name='lname' value={lname} color='error' onChange={handleChange} required fullWidth style={{ marginTop: 10 }}
+                  <TextField label='Last Name' name='Last_Name' value={Last_Name} color='error' onChange={handleChange} required fullWidth style={{ marginTop: 10 }}
                   inputProps={{
                     "aria-label": "last name",
                 }}  />
@@ -68,19 +68,19 @@ function Contact() {
 
               </Grid>
 
-              <TextField label='Email' type='email' name='email' value={email} color='error' onChange={handleChange} fullWidth required style={{ marginTop: 10 }}
+              <TextField label='Email' type='Email' name='Email' value={Email} color='error' onChange={handleChange} fullWidth required style={{ marginTop: 10 }}
               inputProps={{
-                "aria-label": "email",
+                "aria-label": "Email",
             }}  />
 
-              <TextField label='Contact Number' name='number' type='number' value={number} color='error' onChange={handleChange} fullWidth required style={{ marginTop: 10 }} 
+              <TextField label='Contact Number' name='Number' type='Number' value={Number} color='error' onChange={handleChange} fullWidth required style={{ marginTop: 10 }} 
               inputProps={{
-                "aria-label": "contact number",
+                "aria-label": "contact Number",
             }} />
 
-              <TextField label='Message' name='message' multiline rows={3} color='error' value={message} onChange={handleChange} fullWidth style={{ marginTop: 10 }}
+              <TextField label='Message' name='Message' multiline rows={3} color='error' value={Message} onChange={handleChange} fullWidth style={{ marginTop: 10 }}
               inputProps={{
-                "aria-label": "message",
+                "aria-label": "Message",
             }}  />
 
               <Button variant='outlined' type='submit' color='error' style={{ width: 100, height: 40, marginTop: 10 
@@ -102,8 +102,8 @@ function Contact() {
             </div>
 
             <div className={style.para}>
-              <span ><b><a className={style.email} href='https://goo.gl/maps/a5KsbNw6Lm8Vyf267'>Address</a></b></span>
-              <p className={style.details}><a className={style.email} href='https://goo.gl/maps/a5KsbNw6Lm8Vyf267'>307, Silver Squre, Near Dipak School, Gangotri Circle Road, Nikol, Ahmedabad</a></p>
+              <span ><b><a className={style.Email} href='https://goo.gl/maps/a5KsbNw6Lm8Vyf267'>Address</a></b></span>
+              <p className={style.details}><a className={style.Email} href='https://goo.gl/maps/a5KsbNw6Lm8Vyf267'>307, Silver Squre, Near Dipak School, Gangotri Circle Road, Nikol, Ahmedabad</a></p>
             </div>
 
           </div>
@@ -111,7 +111,7 @@ function Contact() {
           <div className={style.contactBox}>
 
             <div className={style.icon}>
-            <a className={style.email} href='tel:9601871672'>
+            <a className={style.Email} href='tel:9601871672'>
               <Avatar style={{ background: "#d32f2f" }}><LocalPhoneIcon /></Avatar>
             </a>
                 
@@ -119,23 +119,21 @@ function Contact() {
 
             <div className={style.para}>
               <span><b>Phone</b></span>
-              <p className={style.details}><a className={style.email} href='tel:9601871672'>+91 9601871672</a></p>
-              <p>+00 1234567890</p>
+              <p className={style.details}><a className={style.Email} href='tel:9601871672'>+91 9601871672</a></p>
             </div>
 
           </div>
           <div className={style.contactBox}>
 
             <div className={style.icon}>
-            <a className={style.email} href='mailto:rekhagadhesariya@gmail.com'>
+            <a className={style.Email} href='mailto:rekhagadhesariya@gmail.com'>
               <Avatar style={{ background: "#d32f2f" }}><MailIcon /></Avatar>
             </a>
             </div>
 
             <div className={style.para}>
               <span><b>Email</b></span>
-              <p className={style.details}><a className={style.email} href='mailto:rekhagadhesariya@gmail.com'>rekhagadhesariya01@gmal.com</a></p>
-              <p className={style.details}>abcde@gmail.com</p>
+              <p className={style.details}><a className={style.Email} href='mailto:rekhagadhesariya@gmail.com'>rekhagadhesariya01@gmal.com</a></p>
             </div>
 
           </div>
