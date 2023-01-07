@@ -12,7 +12,7 @@ async function sendEmail(req,res){
     
     try{
         await sendgrid.send({
-            to:'rekhagadhesariya01@gmail.com',
+            to:'dharmeshp2003@gmail.com',
             from:'kunjgadhesariya@gmail.com',
             subject:`${data.subject}`,
             html:html
